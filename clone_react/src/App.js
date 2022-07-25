@@ -1,10 +1,10 @@
 import React from "react";
-import CoinTracker from "./CoinTracker";
+import MovieApp from "./MovieApp";
 
 function App(props) {
 	return (
 		<div>
-			<CoinTracker />
+			<MovieApp />
 		</div>
 	);
 }
