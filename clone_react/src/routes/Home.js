@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import MovieApp from "../components/MovieApp";
 
-function MovieApp(props) {
+function Home(props) {
 	const [loading, setLoading] = useState(true);
 	const [movies, setMovies] = useState([]);
 
@@ -19,24 +20,20 @@ function MovieApp(props) {
 	}, []);
 
 	return (
-		// 로딩 중이면 Loading 문구를 출력하고, 로딩이 끝나면 영화 제목 출력
-		// map 사용할 때마다 고유한 값으로 key 지정해줄 것
 		<div>
 			{loading ? (
 				<h1>Loading...</h1>
 			) : (
 				<div>
 					{movies.map((movie) => (
-						<div key={movie.id}>
-							<h2>{movie.title}</h2>
-							<img src={movie.medium_cover_image} />
-							<p>{movie.summary}</p>
-							<ul>
-								{movie.genres.map((genre) => (
-									<li key={genre}>{genre}</li>
-								))}
-							</ul>
-						</div>
+						<MovieApp
+							// react.js 에서 map 사용할 때마다 고유한 값으로 key 지정해줄 것
+							key={movie.id}
+							coverImg={movie.medium_cover_image}
+							title={movie.title}
+							summary={movie.summary}
+							genres={movie.genres}
+						/>
 					))}
 				</div>
 			)}
@@ -44,4 +41,4 @@ function MovieApp(props) {
 	);
 }
 
-export default MovieApp;
+export default Home;
