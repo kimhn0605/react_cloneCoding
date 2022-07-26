@@ -29,6 +29,7 @@ function Home(props) {
 						<MovieApp
 							// react.js 에서 map 사용할 때마다 고유한 값으로 key 지정해줄 것
 							key={movie.id}
+							id={movie.id}
 							coverImg={movie.medium_cover_image}
 							title={movie.title}
 							summary={movie.summary}
