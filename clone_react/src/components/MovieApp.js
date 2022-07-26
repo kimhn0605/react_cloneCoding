@@ -14,7 +14,7 @@ function MovieApp({ id, coverImg, title, summary, genres }) {
 			</h2>
 			{/* 이미지 element 는 alt 속성 지정해줄 것 */}
 			<img alt={title} src={coverImg} />
-			<p>{summary}</p>
+			<p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p>
 			<ul>
 				{genres.map((genre) => (
 					<li key={genre}>{genre}</li>
